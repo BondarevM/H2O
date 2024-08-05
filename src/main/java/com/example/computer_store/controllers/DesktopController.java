@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/desktop")
 @RestController
 public class DesktopController {
-    DesktopService desktopService;
+    private final DesktopService desktopService;
 
     @Autowired
     public DesktopController(DesktopService desktopService) {

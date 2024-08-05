@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/laptop")
 @RestController
 public class LaptopController {
-    LaptopService laptopService;
+    private final LaptopService laptopService;
 
     @Autowired
     public LaptopController(LaptopService laptopService) {

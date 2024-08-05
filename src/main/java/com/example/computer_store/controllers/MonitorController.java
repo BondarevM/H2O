@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/monitor")
 @RestController
 public class MonitorController {
-    MonitorService monitorService;
+    private final MonitorService monitorService;
 
     @Autowired
     public MonitorController(MonitorService monitorService) {

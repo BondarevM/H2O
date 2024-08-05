@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class HardDriveController {
 
-    HardDriveService hardDriveService;
+    private final HardDriveService hardDriveService;
 
     @Autowired
     public HardDriveController(HardDriveService hardDriveService) {
