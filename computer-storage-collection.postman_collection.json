@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "9b487e5c-b7de-4cbf-a7b3-53265f33ebad",
+		"name": "computer-storage-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33239771"
+	},
+	"item": [
+		{
+			"name": "GET desktops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/desktop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET desktop by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/desktop/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"desktop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST desktop",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"serialNumber\": \"SN111111\",\r\n    \"manufacturer\": \"MSI\",\r\n    \"price\": 1450.0,\r\n    \"quantity\": 3,\r\n    \"formFactor\": \"DESKTOP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/desktop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT desktop",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"serialNumber\": \"SN123456\",\r\n        \"manufacturer\": \"Lenovo(Changed)\",\r\n        \"price\": 800.0,\r\n        \"quantity\": 10,\r\n        \"formFactor\": \"DESKTOP\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/desktop/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"desktop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET laptops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET laptop by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptop/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST laptop",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"serialNumber\": \"LP999999\",\r\n    \"manufacturer\": \"Test\",\r\n    \"price\": 1900.0,\r\n    \"quantity\": 1,\r\n    \"size\": 17\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/laptop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT laptop",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"serialNumber\": \"LP123456\",\r\n        \"manufacturer\": \"Lenovo(Changed)\",\r\n        \"price\": 900.0,\r\n        \"quantity\": 7,\r\n        \"size\": 13\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/laptop/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET monitors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"monitor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET monitor by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/monitor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"monitor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST monitor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\": \"MN999999\",\r\n    \"manufacturer\": \"Test\",\r\n    \"price\": 1100.0,\r\n    \"quantity\": 6,\r\n    \"diagonal\": 19.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"monitor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT monitor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\": \"MN123456\",\r\n    \"manufacturer\": \"Samsung(Changed)\",\r\n    \"price\": 200.0,\r\n    \"quantity\": 8,\r\n    \"diagonal\": 24.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/monitor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"monitor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET hard drives",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/hard-drive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hard-drive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET hard drive by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/hard-drive/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hard-drive",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST hard drive",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\": \"HD999999\",\r\n    \"manufacturer\": \"Test\",\r\n    \"price\": 80.0,\r\n    \"quantity\": 11,\r\n    \"capacity\": 1024\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hard-drive",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hard-drive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT hadr drive",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"serialNumber\": \"HD123456\",\r\n        \"manufacturer\": \"Seagate(Changed)\",\r\n        \"price\": 100.0,\r\n        \"quantity\": 20,\r\n        \"capacity\": 500\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/hard-drive/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"hard-drive",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
