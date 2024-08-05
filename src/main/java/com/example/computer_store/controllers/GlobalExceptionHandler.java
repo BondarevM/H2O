@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidRequestException.class)
-    public ResponseEntity<ErrorResponseDto> invalidRequestExceptionHandle(InvalidRequestException e){
+    public ResponseEntity<ErrorResponseDto> invalidRequestExceptionHandle(InvalidRequestException e) {
         ErrorResponseDto errorResponseDto = new ErrorResponseDto(e.getMessage());
         return new ResponseEntity<>(errorResponseDto, HttpStatus.NOT_FOUND);
     }

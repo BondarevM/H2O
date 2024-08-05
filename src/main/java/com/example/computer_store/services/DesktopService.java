@@ -12,31 +12,33 @@ import java.util.Optional;
 
 @Service
 public class DesktopService {
-    private DesktopRepository desktopRepository;
+    private final DesktopRepository desktopRepository;
 
     @Autowired
     public DesktopService(DesktopRepository desktopRepository) {
         this.desktopRepository = desktopRepository;
     }
 
-    public List<Desktop> getAllDesktops(){
+    public List<Desktop> getAllDesktops() {
         return desktopRepository.findAll();
     }
 
-    public Desktop getDesktopById(Integer id){
+    public Desktop getDesktopById(Integer id) {
         Optional<Desktop> desktopOptional = desktopRepository.findById(id);
 
-        if (desktopOptional.isPresent()){
+        if (desktopOptional.isPresent()) {
             return desktopOptional.get();
         } else {
             throw new InvalidRequestException("Desktop not found with id " + id);
         }
     }
+
     @Transactional
-    public void addDesktop(Desktop desktop){
+    public void addDesktop(Desktop desktop) {
         desktopRepository.save(desktop);
     }
 
+    @Transactional
     public Desktop updateDesktop(Integer id, Desktop desktopDetails) {
         Desktop existingDesktop = desktopRepository.findById(id)
                 .orElseThrow(() -> new InvalidRequestException("Desktop not found with id " + id));

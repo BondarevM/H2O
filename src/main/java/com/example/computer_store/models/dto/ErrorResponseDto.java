@@ -8,6 +8,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class ErrorResponseDto {
-
     private String message;
 }

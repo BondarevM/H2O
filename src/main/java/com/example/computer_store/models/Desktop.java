@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Desktop extends Product{
+public class Desktop extends Product {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "form_factor")
