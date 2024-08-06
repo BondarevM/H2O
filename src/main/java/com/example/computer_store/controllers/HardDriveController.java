@@ -1,7 +1,9 @@
 package com.example.computer_store.controllers;
 
 import com.example.computer_store.models.HardDrive;
-import com.example.computer_store.services.HardDriveService;
+import com.example.computer_store.models.Product;
+import com.example.computer_store.services.HardDriveServiceImpl;
+import com.example.computer_store.services.ProductServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,32 +15,32 @@ import java.util.List;
 @RestController
 public class HardDriveController {
 
-    private final HardDriveService hardDriveService;
+    private final ProductServiceInterface service;
 
     @Autowired
-    public HardDriveController(HardDriveService hardDriveService) {
-        this.hardDriveService = hardDriveService;
+    public HardDriveController(ProductServiceInterface hardDriveServiceImpl) {
+        this.service = hardDriveServiceImpl;
     }
 
     @GetMapping
-    public List<HardDrive> getAllHardDrives() {
-        return hardDriveService.getAllHardDrivers();
+    public List<Product> getAllHardDrives() {
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<HardDrive> getHardDriveById(@PathVariable Integer id) {
-        return ResponseEntity.ok(hardDriveService.getHardDriveById(id));
+    public ResponseEntity<Product> getHardDriveById(@PathVariable Integer id) {
+        return ResponseEntity.ok(service.getById(id));
     }
 
     @PostMapping
     public ResponseEntity<String> addHardDrive(@RequestBody HardDrive hardDrive) {
-        hardDriveService.addHardDrive(hardDrive);
+        service.add(hardDrive);
         return ResponseEntity.created(URI.create("/api/hard-drive")).body("Hard drive created");
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<HardDrive> updateHardDrive(@PathVariable Integer id, @RequestBody HardDrive hardDriveDetails) {
-        HardDrive updatedHardDrive = hardDriveService.updateHardDrive(id, hardDriveDetails);
-        return ResponseEntity.ok(updatedHardDrive);
+    public ResponseEntity<Product> updateHardDrive(@PathVariable Integer id, @RequestBody HardDrive hardDriveDetails) {
+        Product updatedProduct = service.update(id, hardDriveDetails);
+        return ResponseEntity.ok(updatedProduct);
     }
 }

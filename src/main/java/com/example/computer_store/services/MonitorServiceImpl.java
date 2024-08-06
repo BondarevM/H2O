@@ -2,6 +2,7 @@ package com.example.computer_store.services;
 
 import com.example.computer_store.exceptions.InvalidRequestException;
 import com.example.computer_store.models.Monitor;
+import com.example.computer_store.models.Product;
 import com.example.computer_store.repositories.MonitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,19 +12,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MonitorService {
-    MonitorRepository monitorRepository;
+public class MonitorServiceImpl implements ProductServiceInterface {
+    private final MonitorRepository monitorRepository;
 
     @Autowired
-    public MonitorService(MonitorRepository monitorRepository) {
+    public MonitorServiceImpl(MonitorRepository monitorRepository) {
         this.monitorRepository = monitorRepository;
     }
 
-    public List<Monitor> getAllMonitors() {
-        return monitorRepository.findAll();
+    @Override
+    public List<Product> getAll() {
+        return monitorRepository.findAll().stream().map(p -> (Product) p).toList();
     }
 
-    public Monitor getMonitorById(Integer id) {
+    @Override
+    public Product getById(Integer id) {
         Optional<Monitor> optionalMonitor = monitorRepository.findById(id);
 
         if (optionalMonitor.isPresent()) {
@@ -33,21 +36,25 @@ public class MonitorService {
         }
     }
 
+    @Override
     @Transactional
-    public void addMonitor(Monitor monitor) {
-        monitorRepository.save(monitor);
+    public void add(Product product) {
+        monitorRepository.save((Monitor) product);
     }
 
+    @Override
     @Transactional
-    public Monitor updateMonitor(Integer id, Monitor monitorDetails) {
+    public Monitor update(Integer id, Product productDetailsDetails) {
+        Monitor monitorDetailsDetails = (Monitor) productDetailsDetails;
+
         Monitor existingMonitor = monitorRepository.findById(id)
                 .orElseThrow(() -> new InvalidRequestException("Monitor not found with id " + id));
 
-        existingMonitor.setSerialNumber(monitorDetails.getSerialNumber());
-        existingMonitor.setManufacturer(monitorDetails.getManufacturer());
-        existingMonitor.setPrice(monitorDetails.getPrice());
-        existingMonitor.setQuantity(monitorDetails.getQuantity());
-        existingMonitor.setDiagonal(monitorDetails.getDiagonal());
+        existingMonitor.setSerialNumber(monitorDetailsDetails.getSerialNumber());
+        existingMonitor.setManufacturer(monitorDetailsDetails.getManufacturer());
+        existingMonitor.setPrice(monitorDetailsDetails.getPrice());
+        existingMonitor.setQuantity(monitorDetailsDetails.getQuantity());
+        existingMonitor.setDiagonal(monitorDetailsDetails.getDiagonal());
 
         return monitorRepository.save(existingMonitor);
     }
